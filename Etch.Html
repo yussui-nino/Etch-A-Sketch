@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Etch.css">
+</head>
+<body>
+    <div id="container">
+        <button id="try"> Click to choose ur rows and squares</button>
+        <div id="rows">
+
+        </div>
+
+    </div>
+    
+
+
+    <script>
+    
+    
+    const container = document.getElementById("container")
+    const rows = document.getElementById("rows")
+    const button = document.querySelector('#try')
+    
+    button.addEventListener("click", () =>{
+    userSquares();
+    userGrid();
+
+  
+    
+   })
+        function userGrid(){
+            rownumber = prompt("How many rows do you want on this grid ? :")
+            if (rownumber > 99){
+                alert('ERROR')
+                return UpdateuserGrid()
+            }
+            else{
+                return rownumber
+            }
+            }
+                    
+            
+
+        
+        function userSquares(){
+            squaresnumber = prompt("How many squares do you want on the grid ? :")
+            if (squaresnumber > 99){
+                alert('ERROR')
+                return userSquares();}
+            else{
+                return squaresnumber}
+
+            }
+            let default1 = 16
+            let default2 = 16
+            
+            let answer1 = userGrid()
+            let answer2 = userSquares()
+    for (i = 0 ; i < answer1; i++){
+        
+        const row = document.createElement('div')
+        row.classList.add('row')
+        rows.appendChild(row)
+    }
+    const rowa = document.querySelectorAll('.row')
+
+    rowa.forEach(row => {
+        for (let i = 0 ; i < answer2 ; i++ ){
+           
+            const squares = document.createElement('div')
+            squares.classList.add('squares')
+            
+         row.appendChild(squares) 
+        }
+    })
+
+    const animatedsquares = document.querySelectorAll('.squares')
+
+        animatedsquares.forEach(squares =>{
+            squares.addEventListener('click', ()=>{
+                squares.style.backgroundColor = "black"
+            })
+        })
+
+  
+
+    // for (i = 1 ; i < 17 ; i++){
+    //     const squares = document.createElement('div')
+    //     squares.style.css = "border : 1px solid black ; height : 25px ; width : 25px"
+    //     rowa.appendChild(squares)
+    // }
+
+
+
+       // for (i = 1 ; i < 257 ; i++){
+    //    let div = document.createElement('div')
+    //    div.style.cssText = "border : 1px solid black ; height : 25px ; width : 25px"
+    //    container.appendChild(div)
+    // }
+    
+    </script>
+</body>
+</html>
